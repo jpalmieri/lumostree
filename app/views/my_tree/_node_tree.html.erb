@@ -1,0 +1,14 @@
+<div style='margin-left:<%= "#{10 * tree.depth }" %>px;'>
+  <% unless tree.root? %>﹄<% end %>
+  <%= tree.name %>
+  <% tree.children.each do |child| %>
+    <%= render partial: 'node_tree', locals: { tree: child } %>
+  <% end %>
+
+  <div <% unless tree.root? %> style='margin-left:30px;' <% end %> >
+    <%= form_tag "/my_tree/#{tree.id}", method: 'put' do %>
+      ﹄<%= text_field_tag :name %>
+      <%= submit_tag "+" %>
+    <% end %>
+  </div>
+</div>

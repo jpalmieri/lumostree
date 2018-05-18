@@ -2,6 +2,8 @@
 <p>Find me in app/views/my_tree/index.html.erb</p>
 <ul>
   <% @trees.each do |tree| %>
-    <li><%= link_to tree.name, my_tree_edit_path(tree.id) %></li>
+    <li><%= link_to tree.name, edit_my_tree_path(tree.id) %></li>
   <% end %>
-<ul>
+</ul>
+
+<%= render partial: "new_form" %>
