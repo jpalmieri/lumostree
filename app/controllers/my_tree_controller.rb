@@ -4,7 +4,8 @@ class MyTreeController < ApplicationController
   end
 
   def create
-    MyTree.create(tree_params)
+    tree = MyTree.create(tree_params)
+    redirect_to action: 'edit', id: tree.id
   end
 
   def edit
