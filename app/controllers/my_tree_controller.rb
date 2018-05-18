@@ -1,5 +1,6 @@
 class MyTreeController < ApplicationController
   def index
+    @trees = MyTree.all.select { |t| t.root? }
   end
 
   def new

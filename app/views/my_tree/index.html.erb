@@ -1,2 +1,7 @@
 <h1>MyTree#index</h1>
 <p>Find me in app/views/my_tree/index.html.erb</p>
+<ul>
+  <% @trees.each do |tree| %>
+    <li><%= link_to tree.name, my_tree_edit_path(tree.id) %></li>
+  <% end %>
+<ul>
