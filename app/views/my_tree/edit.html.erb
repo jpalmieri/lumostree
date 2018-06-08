@@ -1,2 +1,5 @@
 <h1>MyTree#edit</h1>
 <p>Find me in app/views/my_tree/edit.html.erb</p>
+<p><%= link_to '<- index', my_tree_index_path %></p>
+<%= render partial: 'node_tree', locals: { tree: @tree } %>
+<%= render partial: "new_form" %>

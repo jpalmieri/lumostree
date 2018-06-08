@@ -1,16 +1,26 @@
 class MyTreeController < ApplicationController
   def index
-  end
-
-  def new
+    @trees = MyTree.all.select { |t| t.root? }
   end
 
   def create
+    tree = MyTree.create(tree_params)
+    redirect_to action: 'edit', id: tree.id
   end
 
   def edit
+    @tree = MyTree.find(params[:id])
   end
 
   def update
+    tree = MyTree.find(params[:id])
+    tree.children.create(tree_params)
+    redirect_to action: 'edit', id: tree.root.id
+  end
+
+  private
+
+  def tree_params
+    params.permit(:name)
   end
 end
